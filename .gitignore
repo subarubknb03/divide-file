@@ -1,2 +1,6 @@
 # checkpoints-dire
 .ipynb_checkpoints/
+
+*.orig
+
+test.py
