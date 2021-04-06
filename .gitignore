@@ -1,2 +1,4 @@
 # checkpoints-dire
 .ipynb_checkpoints/
+
+*.orig
