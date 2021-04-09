@@ -2,5 +2,5 @@
 .ipynb_checkpoints/
 
 *.orig
-
+.DS_Store
 test.py
