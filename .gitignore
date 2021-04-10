@@ -1,6 +1,7 @@
 # checkpoints-dire
 .ipynb_checkpoints/
 sample/
+__pycache__/
 
 *.orig
 *.ipynb
