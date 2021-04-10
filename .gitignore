@@ -1,6 +1,9 @@
 # checkpoints-dire
 .ipynb_checkpoints/
+sample/
+__pycache__/
 
 *.orig
-
+*.ipynb
+.DS_Store
 test.py

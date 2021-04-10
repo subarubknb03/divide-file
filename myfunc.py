@@ -4,32 +4,50 @@ from glob import glob
 
 
 # unify path name
-def unify_path_name(path):
-    if path[-1] != '/':
-        path = path + '/'
+def unify_path_name(organize_dirctrory_path):
+    if organize_dirctrory_path[-1] != '/':
+        organize_dirctrory_path = organize_dirctrory_path + '/'
     
-    return path
+    return organize_dirctrory_path
 
 
 # get extension to create files every extension
-def check_file_extension(path):
-    file_ls = glob(path + '*')
-    file_extension = []
+def check_file_extensions(organize_dirctrory_path):
+    file_list = glob(organize_dirctrory_path + '*')
+    file_extensions = []
     
-    for f in file_ls:
-        if os.path.isfile(f) == True:
-            file_extension.append(f.split('.')[-1])
+    for file in file_list:
+        if os.path.isfile(file) == True:
+            file_extensions.append(file.split('.')[-1])
         
-    file_extension = list(set(file_extension))
+    file_extensions = list(set(file_extensions))
     
-    return file_extension
+    return file_extensions
 
 
 # create directories to move files
-def make_dir(file_extension, move_path):
-    for f_e in file_extension:
-        mkdir_p = move_path + f_e
-        os.makedirs(mkdir_p)
+def make_directories(organize_dirctrory_path):
+    file_extensions = check_file_extensions(organize_dirctrory_path)
+    created_directory = []
+    for file_extension in file_extensions:
+        mkdir_to_path = organize_dirctrory_path + file_extension
+        try:
+            os.makedirs(mkdir_to_path)
+        except FileExistsError:
+            check = ''
+            while True:
+                print(f'すでに{organize_dirctrory_path}ディレクトリに{file_extension}ディレクトリが存在します。')
+                print('このまま続けても良いですか？[y/n]')
+                check = input()
+                if check == 'y' or check ==  'n':
+                    break
+                else:
+                    print('yかnを入力してください。')
+                
+            if check == 'y':
+                continue
+            elif check == 'n':
+                break
         
         
 # move files
