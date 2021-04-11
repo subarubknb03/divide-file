@@ -5,6 +5,7 @@ from glob import glob
 
 # unify path name
 def unify_path_name(organize_dirctrory_path):
+    organize_dirctrory_path = organize_dirctrory_path.strip(' ')
     if organize_dirctrory_path[-1] != '/':
         organize_dirctrory_path = organize_dirctrory_path + '/'
     
